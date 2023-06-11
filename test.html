@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Script</title>
+</head>
+<body>
+    <form method="get" action="affiche-liste.py">
+        <p><b>Liste des contacts</b></p>
+        <span>Rechercher un nom: </span><input type="text" name="login" onkeyup="liste()" id="text"/>
+        <div id='div'></div>
+        <a href="menu.py">Retour au menu</a>
+        </form>
+        
+        <script>
+        function liste(){
+            req = new XMLHttpRequest(); 
+            text = document.getElementId(input).value;
+            div = document.getElementId(div);
+            req.open('get', 'affiche-liste.py?mot='+text, true);
+            div.innerHTML = req.responseText; 
+            req.send()
+        }
+        </script>
+</body>
