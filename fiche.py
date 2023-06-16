@@ -21,4 +21,5 @@ def index(req):
                 req.write("<tr><td>{} : </td><td> {}</td></tr>".format(liste[index], fonctions.lien("mailto:{}".format(resultat[index]), resultat[index])))
             else:
                 req.write("<tr><td>{} : </td><td> {}</td></tr>".format(liste[index], resultat[index]))
-    req.write("</table> <br>{}".format(fonctions.lien("./menu.py", "Retour au menu.")))
+    req.write("</table> <br>{} {}".format(fonctions.lien("./menu.py", "Retour au menu."), 
+                                        fonctions.lien("suppresion.py?id_contact={}".format(id_contact), "Suppression du contact")))

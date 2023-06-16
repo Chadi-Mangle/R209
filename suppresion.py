@@ -1,6 +1,6 @@
 import fonctions
 import psycopg2
-from mod_python import Session, apache
+from mod_python import Session, apache, util
 
 def index(req):
     s = Session.Session(req)
@@ -10,5 +10,5 @@ def index(req):
     connexion = fonctions.connexionBD()
     curseur = connexion.cursor()
     curseur.execute("delete from contact where id_contact = {} and id_util = {};".format(id_contact, s['id_util']))
-    resultat = curseur.fetchone()
     connexion.commit()
+    util.redirect(req,  "./liste.py")

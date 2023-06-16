@@ -2,7 +2,7 @@ import psycopg2
 from mod_python import util
 
 def codeHTML(titre, corps): 
-	html = """<!DOCTYPE html> 
+	return """<!DOCTYPE html> 
 	<html>
 		<head>
 			<title>{}</title>
@@ -12,8 +12,7 @@ def codeHTML(titre, corps):
 			{}
 		</body>
 	</html>""".format(titre, corps)
-	
-	return html
+
 def connexionBD(): 
 	return psycopg2.connect(host='localhost',
 			dbname='devweb',
